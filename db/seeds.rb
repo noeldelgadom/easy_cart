@@ -1,5 +1,5 @@
 
-# Create Fake Products
+# Create 100 Fake Products
 100.times do
   Product.create!(
     name: Faker::Food.ingredient,
