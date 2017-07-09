@@ -11,7 +11,13 @@ class CartsController < ApplicationController
   def edit
   end
 
+  def add_product
+    @product = Product.find(params[:id])
+    @cart.products << @product
+  end
+
   def update
+    @cart.update_total
   end
 
   def destroy

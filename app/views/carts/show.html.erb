@@ -1,4 +1,17 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>Total: <%= number_to_currency @cart.total/100.0 %></h1>
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
 
-<%= render @products %>
+  <tbody>
+    <%= render @products %>
+  </tbody>
+</table>

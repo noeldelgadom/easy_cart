@@ -1,1 +1,9 @@
-<%= product.name %>
+<tr>
+  <td><%= product.name %></td>
+  <td><%= image_tag product.image %></td>
+  <td><%= number_to_currency product.price/100.0 %></td>
+  <td><%= link_to 'Add to Cart', root_path%></td>
+  <td><%= link_to 'Show', product %></td>
+  <td><%= link_to 'Edit', edit_product_path(product) %></td>
+  <td><%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
