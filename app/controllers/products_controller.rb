@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
   def add_to_cart
     @cart = Cart.find(session[:cart_id])
     @cart.products << @product
+    @cart.update_total
+    @cart.save!
 
     redirect_to '/'
   end
