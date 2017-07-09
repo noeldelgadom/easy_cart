@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def create
     super
-    puts ' --- yay --- '
+    session[:cart_id] = @user.id
   end
 end

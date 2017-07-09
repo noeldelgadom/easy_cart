@@ -8,9 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    puts ''
-    puts @product.name
-    puts ''
+    @cart = Cart.find(session[:cart_id])
+    @cart.products << @product
 
     redirect_to '/'
   end
