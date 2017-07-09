@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:add_to_cart, :show, :edit, :update, :destroy]
+  before_action :set_product, only: [:add_to_cart, :remove_product, :show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:add_to_cart, :remove_product]
 
   # GET /products
   # GET /products.json
@@ -8,12 +9,19 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    @cart = Cart.find(session[:cart_id])
     @cart.products << @product
     @cart.update_total
     @cart.save!
 
     redirect_to '/'
+  end
+
+  def remove_product
+    @cart.products.delete(@product)
+    @cart.update_total
+    @cart.save!
+
+    redirect_to @cart
   end
 
   # GET /products/1
@@ -79,5 +87,9 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :image, :price, :stock)
+    end
+
+    def set_cart
+      @cart = Cart.find(session[:cart_id])
     end
 end
