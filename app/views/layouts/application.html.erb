@@ -21,6 +21,8 @@
       <p><%= link_to 'Register', new_user_registration_path %></p>
     <% end %>
 
+    <p>Cart ID:<% session[:cart_id] %></p>
+
     <%= yield %>
   </body>
 </html>

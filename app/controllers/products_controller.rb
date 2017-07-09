@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     puts @product.name
     puts ''
 
-    redirect_to 'index'
+    redirect_to '/'
   end
 
   # GET /products/1
