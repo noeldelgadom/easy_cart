@@ -1,10 +1,18 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:add_to_cart, :show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+  end
+
+  def add_to_cart
+    puts ''
+    puts @product.name
+    puts ''
+
+    redirect_to 'index'
   end
 
   # GET /products/1
